@@ -4,6 +4,7 @@ import 'sub_a_home_ui.dart';
 import 'sub_b_home_ui.dart';
 import 'sub_c_home_ui.dart';
 import 'sub_d_home_ui.dart';
+import 'about_ui.dart'; // 👉 อย่าลืม import หน้า AboutUI ด้วยนะครับ
 
 class HomeUI extends StatefulWidget {
   const HomeUI({super.key});
@@ -50,6 +51,21 @@ class _HomeUIState extends State<HomeUI> {
         ),
         centerTitle: true,
         backgroundColor: Colors.amber,
+        // 👇 เพิ่มส่วน actions ตรงนี้ครับ สำหรับปุ่มมุมขวาบน
+        actions: [
+          IconButton(
+            onPressed: () {
+              // คำสั่งสำหรับเปลี่ยนหน้าไปที่ AboutUI
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AboutUI(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.info_outline, color: Colors.black), // ไอคอนตัว i แบบวงกลม
+          ),
+        ],
       ),
 
       body: Column(
